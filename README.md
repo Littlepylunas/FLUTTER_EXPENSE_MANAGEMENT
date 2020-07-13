@@ -1,6 +1,6 @@
 # expense_management
 
-A new Flutter project.
+A new Flutter project for expense management.
 
 ## Getting Started
 
