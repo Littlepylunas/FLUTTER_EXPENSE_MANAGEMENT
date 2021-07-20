@@ -41,15 +41,15 @@ class _ExpenseManagementScreenState extends State<ExpenseManagementScreen> {
     widget.model.getAllExpense();
   }
 
-  @override
-  void didUpdateWidget(ExpenseManagementScreen oldWidget) {
-    if (isGot) {
-      isGot = false;
-      widget.model.getAllExpense();
-    } else
-      isGot = true;
-    super.didUpdateWidget(oldWidget);
-  }
+  // @override
+  // void didUpdateWidget(ExpenseManagementScreen oldWidget) {
+  //   if (isGot) {
+  //     isGot = false;
+  //     widget.model.getAllExpense();
+  //   } else
+  //     isGot = true;
+  //   super.didUpdateWidget(oldWidget);
+  // }
 
   void _onItemTapped(int index) {
     if (_selectedIndex != index) {
