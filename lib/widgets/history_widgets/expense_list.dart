@@ -56,99 +56,98 @@ class _ExpenseListState extends State<ExpenseList> {
     return ListView(
       children: widget.expenses.map((e) {
         return Card(
-          color: Color(0xD3FFFFFF),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Container(
-                alignment: Alignment.center,
-                width: MediaQuery.of(context).size.width * 0.25,
-                height: 65,
-                margin: EdgeInsets.symmetric(vertical: 5),
-                decoration: BoxDecoration(
-                  color: (e.contentType == -1)
-                      ? Theme.of(context).primaryColorDark
-                      : Theme.of(context).primaryColorLight,
-                  shape: BoxShape.circle,
-                ),
-                child: Text(
-                  e.contentType == -1
-                      ? ('-' + Global.toText(e.amount.truncate().toInt()))
-                      : ('+' + Global.toText(e.amount.truncate().toInt())),
-                  style: TextStyle(
-                    color: Colors.white,
+          child: GestureDetector(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Container(
+                  alignment: Alignment.center,
+                  width: MediaQuery.of(context).size.width * 0.25,
+                  height: 65,
+                  margin: EdgeInsets.symmetric(vertical: 5),
+                  decoration: BoxDecoration(
+                    color: (e.contentType == -1)
+                        ? Theme.of(context).primaryColorDark
+                        : Theme.of(context).primaryColorLight,
+                    shape: BoxShape.circle,
                   ),
-                ),
-                padding: EdgeInsets.all(5),
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  Container(
-                    padding: EdgeInsets.symmetric(vertical: 5),
-                    width: MediaQuery.of(context).size.width * 0.4,
-                    child: Text(
-                      e.contentName,
-                      overflow: TextOverflow.ellipsis,
-                      textAlign: TextAlign.left,
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Theme.of(context).accentColor,
-                      ),
+                  child: Text(
+                    e.contentType == -1
+                        ? ('-' + Global.toText(e.amount.truncate().toInt()))
+                        : ('+' + Global.toText(e.amount.truncate().toInt())),
+                    style: TextStyle(
+                      color: Colors.white,
                     ),
                   ),
-                  Row(
-                    children: <Widget>[
-                      Visibility(
-                        visible: e.pictureId != '',
-                        child: Icon(
-                          Icons.image,
-                          size: 16,
-                          color: Theme.of(context).primaryColor,
+                  padding: EdgeInsets.all(5),
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    Container(
+                      padding: EdgeInsets.symmetric(vertical: 5),
+                      width: MediaQuery.of(context).size.width * 0.4,
+                      child: Text(
+                        e.contentName,
+                        overflow: TextOverflow.ellipsis,
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Theme.of(context).accentColor,
                         ),
                       ),
-                      Text(
-                        e.date,
-                        style: TextStyle(fontSize: 12, color: Colors.black54),
-                      ),
-                    ],
-                  ),
-                  Container(
-                    padding: EdgeInsets.symmetric(vertical: 5),
-                    width: MediaQuery.of(context).size.width * 0.4,
-                    child: Text(
-                      e.title,
-                      overflow: TextOverflow.ellipsis,
-                      textAlign: TextAlign.left,
-                      style: TextStyle(
-                        fontSize: 12,
-                        color: Theme.of(context).accentColor,
-                      ),
                     ),
-                  ),
-                ],
-              ),
-              Container(
-                alignment: Alignment.centerRight,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: <Widget>[
-                    IconButton(
-                      icon: Icon(Icons.edit),
-                      color: Theme.of(context).primaryColor,
-                      onPressed: () =>
-                          widget.openModalExpense(context, false, e),
+                    Row(
+                      children: <Widget>[
+                        Visibility(
+                          visible: e.pictureId != '',
+                          child: Icon(
+                            Icons.image,
+                            size: 16,
+                            color: Theme.of(context).primaryColor,
+                          ),
+                        ),
+                        Text(
+                          e.date,
+                          style: TextStyle(fontSize: 12, color: Colors.grey),
+                        ),
+                      ],
                     ),
-                    IconButton(
-                      icon: Icon(Icons.delete),
-                      color: Colors.red,
-                      onPressed: () => _showMyDialog(e),
+                    Container(
+                      padding: EdgeInsets.symmetric(vertical: 5),
+                      width: MediaQuery.of(context).size.width * 0.4,
+                      child: Text(
+                        e.title,
+                        overflow: TextOverflow.ellipsis,
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                            fontSize: 12, color: Theme.of(context).accentColor),
+                      ),
                     ),
                   ],
                 ),
-              ),
-            ],
+                Container(
+                  alignment: Alignment.centerRight,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: <Widget>[
+                      IconButton(
+                        icon: Icon(Icons.edit),
+                        color: Theme.of(context).primaryColor,
+                        onPressed: () =>
+                            widget.openModalExpense(context, false, e),
+                      ),
+                      IconButton(
+                        icon: Icon(Icons.delete),
+                        color: Colors.red,
+                        onPressed: () => _showMyDialog(e),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         );
       }).toList(),
