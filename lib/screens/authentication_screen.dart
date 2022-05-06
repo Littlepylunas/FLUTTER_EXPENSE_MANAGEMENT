@@ -76,73 +76,95 @@ class _AuthenticationScreenState extends State<AuthenticationScreen> {
       //   title: Text(widget.title),
       // ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'One-touch Sign In',
-              style: Theme.of(context).textTheme.headline4,
+        child: Container(
+          // width: MediaQuery.of(context).size.width,
+          // height: MediaQuery.of(context).size.height,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("assets/login_background.jpg"),
+              fit: BoxFit.cover,
+              alignment: Alignment.center,
             ),
-            Container(
-              child: Text(
-                'Please place your fingertip on the scanner to verify your identity',
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 16),
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                'One-touch Sign In',
+                style: TextStyle(color: Colors.black87, fontSize: 30),
               ),
-              padding: EdgeInsets.all(50),
-            ),
-            Ink(
-              decoration: const ShapeDecoration(
-                color: Colors.lightBlue,
-                shape: CircleBorder(),
+              Container(
+                child: Text(
+                  'Please place your fingertip on the scanner to verify your identity',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(color: Colors.black54, fontSize: 16),
+                ),
+                padding: EdgeInsets.all(50),
               ),
-              child: IconButton(
-                  icon: Icon(Icons.fingerprint),
-                  color: Colors.white,
-                  onPressed: _handleAuthenticate),
-              // padding: EdgeInsets.all(25),
-            ),
-            Container(
-              padding: EdgeInsets.all(10),
-              child: Text(
-                '(Press on icon above to reopen touch sensor)',
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 14, color: Colors.grey[500]),
-              ),
-            ),
-            Container(
-              child: Column(
-                children: <Widget>[
-                  Text(
-                    '$_error',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold, color: Colors.red[500]),
+              Container(
+                margin: EdgeInsets.only(bottom: 25, right: 5),
+                child: IconButton(
+                  icon: Icon(
+                    Icons.fingerprint,
+                    size: 50,
                   ),
-                  Visibility(
-                    visible: _error != '',
-                    child: RaisedButton(
-                      child: Text('Continue without indentity'),
-                      onPressed: _gotoDashBoard,
+                  color: Colors.black,
+                  onPressed: _handleAuthenticate,
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.all(10),
+                child: Text(
+                  '(Press on icon above to reopen touch sensor)',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 14, color: Colors.grey[700]),
+                ),
+              ),
+              Container(
+                child: Column(
+                  children: <Widget>[
+                    Text(
+                      '$_error',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, color: Colors.red[500]),
                     ),
-                  ),
-                ],
+                    Visibility(
+                      visible: _error != '',
+                      // visible: true,
+                      child: RaisedButton(
+                        child: Text('Continue without indentity'),
+                        onPressed: _gotoDashBoard,
+                      ),
+                    ),
+                  ],
+                ),
+                padding: EdgeInsets.all(15),
               ),
-              padding: EdgeInsets.all(15),
-            ),
-          ],
-        ),
-      ),
-      bottomSheet: Container(
-        child: Text(
-          '(Fingerprint sign in makes your app login much faster. Your device should have at least one fingerprint registered in device settings)',
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            color: Colors.grey[500],
+              Container(
+                child: Text(
+                  '(Fingerprint sign in makes your app login much faster. Your device should have at least one fingerprint registered in device settings)',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.grey[400],
+                  ),
+                ),
+                padding: EdgeInsets.all(35),
+              ),
+            ],
           ),
         ),
-        padding: EdgeInsets.all(35),
       ),
+      // bottomSheet: Container(
+      //   child: Text(
+      //     '(Fingerprint sign in makes your app login much faster. Your device should have at least one fingerprint registered in device settings)',
+      //     textAlign: TextAlign.center,
+      //     style: TextStyle(
+      //       color: Colors.grey[500],
+      //     ),
+      //   ),
+      //   padding: EdgeInsets.all(35),
+      // ),
     );
   }
 }

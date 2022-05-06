@@ -62,31 +62,26 @@ class _ExpenseManagementScreenState extends State<ExpenseManagementScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Expense Management 1.0'),
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.add),
-            color: Colors.white,
-            onPressed: () => widget.model.openModalExpense(
-              context,
-              true,
-              new Expense(
-                id: DateFormat('dd/MM/yyyy HH:mm:ss').format(DateTime.now()),
-                contentName: "Chi phí phát sinh",
-                contentType: -1,
-                title: '',
-                amount: 0,
-                date: DateFormat('dd/MM/yyyy HH:mm:ss').format(DateTime.now()),
-                pictureId: '',
-                picture: null,
-              ),
-            ),
-          ),
-        ],
-      ),
       body: Center(
         child: body(),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => widget.model.openModalExpense(
+          context,
+          true,
+          new Expense(
+            id: DateFormat('dd/MM/yyyy HH:mm:ss').format(DateTime.now()),
+            contentName: "Chi phí phát sinh",
+            contentType: -1,
+            title: '',
+            amount: 0,
+            date: DateFormat('dd/MM/yyyy HH:mm:ss').format(DateTime.now()),
+            pictureId: '',
+            picture: null,
+          ),
+        ),
+        child: Icon(Icons.note_add),
+        backgroundColor: Colors.green,
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[

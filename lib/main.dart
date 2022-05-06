@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
         title: 'Expense Management',
         theme: ThemeData(
           primarySwatch: Colors.blue,
-          accentColor: Colors.blueGrey,
+          accentColor: Colors.black87,
           primaryColorLight: Colors.lightBlueAccent,
           primaryColorDark: Color(0xAAFF6666),
           visualDensity: VisualDensity.adaptivePlatformDensity,

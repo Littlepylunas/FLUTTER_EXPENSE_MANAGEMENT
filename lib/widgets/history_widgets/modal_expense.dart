@@ -95,9 +95,9 @@ class _ModalExpenseState extends State<ModalExpense> {
         setState(() {
           picture = _picture;
         });
-        print("Picture is: .....................................");
-        print("Picture Id is: " + picture.id);
-        print("Picture Data Length is: " + picture.base64.length.toString());
+        // print("Picture is: .....................................");
+        // print("Picture Id is: " + picture.id);
+        // print("Picture Data Length is: " + picture.base64.length.toString());
       });
     }
     try {

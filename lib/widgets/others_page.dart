@@ -12,10 +12,23 @@ class _OthersPageState extends State<OthersPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Text(
-          'Index 2: Comming soon',
-          style: AppStyles.optionStyle,
+      body: Container(
+        padding: EdgeInsets.only(top: 30),
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/3.jpg"),
+            fit: BoxFit.cover,
+            alignment: Alignment.center,
+          ),
+        ),
+        child: Center(
+          child: Container(
+            margin: EdgeInsets.only(bottom: 400),
+            child: Text(
+              'Comming soon',
+              style: AppStyles.optionStyle,
+            ),
+          ),
         ),
       ),
     );

@@ -18,14 +18,25 @@ class ListExpensiveScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: new AppBar(
-        title: Text(title),
-      ),
-      body: Center(
-        child: ExpenseList(
-          model.filterExpense(expDate, expType, expName, expTitle),
-          model.openModalExpense,
-          model.removeExpense,
+      // appBar: new AppBar(
+      //   backgroundColor: Colors.transparent,
+      //   title: Text(title),
+      // ),
+      body: Container(
+        padding: EdgeInsets.only(top: 30),
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/4.jpg"),
+            fit: BoxFit.cover,
+            alignment: Alignment.center,
+          ),
+        ),
+        child: Center(
+          child: ExpenseList(
+            model.filterExpense(expDate, expType, expName, expTitle),
+            model.openModalExpense,
+            model.removeExpense,
+          ),
         ),
       ),
     );

@@ -56,6 +56,7 @@ class _ExpenseListState extends State<ExpenseList> {
     return ListView(
       children: widget.expenses.map((e) {
         return Card(
+          color: Color(0xD3FFFFFF),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
@@ -109,7 +110,7 @@ class _ExpenseListState extends State<ExpenseList> {
                       ),
                       Text(
                         e.date,
-                        style: TextStyle(fontSize: 12, color: Colors.grey),
+                        style: TextStyle(fontSize: 12, color: Colors.black54),
                       ),
                     ],
                   ),
@@ -121,7 +122,9 @@ class _ExpenseListState extends State<ExpenseList> {
                       overflow: TextOverflow.ellipsis,
                       textAlign: TextAlign.left,
                       style: TextStyle(
-                          fontSize: 12, color: Theme.of(context).accentColor),
+                        fontSize: 12,
+                        color: Theme.of(context).accentColor,
+                      ),
                     ),
                   ),
                 ],
